@@ -3,10 +3,12 @@ package org.eventi;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
-@Table(name = "Eventi")
+@Table(name = "eventi")
 public class Evento {
 
     @Id
@@ -28,15 +30,23 @@ public class Evento {
     @Column(name = "numero_massimo_partecipanti")
     private Integer maxP;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    @OneToMany(mappedBy = "partecipazione")
+    List<Partecipazione> listaEventi = new ArrayList<>();
+
     public Evento() {
     }
 
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, Integer maxP) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, Integer maxP, Location location) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento.toString();
         this.maxP = maxP;
+        this.location = location;
     }
 
     public String getTitolo() {
@@ -81,6 +91,14 @@ public class Evento {
 
     public Long getId() {
         return id;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocationId(Location location) {
+        this.location = location;
     }
 
     @Override

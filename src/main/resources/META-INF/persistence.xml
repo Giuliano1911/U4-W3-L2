@@ -2,6 +2,9 @@
     <persistence-unit name="gestioneEventiPU">
         <!--classi che saranno soggette a persistenza -->
         <class>org.eventi.Evento</class>
+        <class>org.eventi.Persona</class>
+        <class>org.eventi.Partecipazione</class>
+        <class>org.eventi.Location</class>
 
         <!--configurazione della connessione al db-->
         <properties>
