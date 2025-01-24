@@ -29,9 +29,6 @@ public class Persona {
     @Column(name="sesso")
     private String sesso;
 
-    @OneToMany(mappedBy = "partecipazione")
-    List<Partecipazione> listaPartecipazioni = new ArrayList<>();
-
     public Persona() {
     }
 

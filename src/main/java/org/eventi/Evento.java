@@ -34,19 +34,15 @@ public class Evento {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @OneToMany(mappedBy = "partecipazione")
-    List<Partecipazione> listaEventi = new ArrayList<>();
-
     public Evento() {
     }
 
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, Integer maxP, Location location) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, Integer maxP) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento.toString();
         this.maxP = maxP;
-        this.location = location;
     }
 
     public String getTitolo() {
@@ -97,7 +93,7 @@ public class Evento {
         return location;
     }
 
-    public void setLocationId(Location location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 

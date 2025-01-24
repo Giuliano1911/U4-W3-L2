@@ -19,9 +19,6 @@ public class Location {
     @Column(name="city")
     private String city;
 
-    @OneToMany(mappedBy = "location")
-    private List<Evento> listaEventi = new ArrayList<>();
-
     public Location() {
     }
 
@@ -48,14 +45,6 @@ public class Location {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public List<Evento> getListaEventi() {
-        return listaEventi;
-    }
-
-    public void setListaEventi(List<Evento> listaEventi) {
-        this.listaEventi = listaEventi;
     }
 
     @Override
